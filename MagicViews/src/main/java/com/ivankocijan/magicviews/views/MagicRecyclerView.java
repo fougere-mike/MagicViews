@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
  *
  * Endless scrolling
  * To support endless scrolling add {@link LoadMoreDataListener}. When user scrolls down to the last item {@link @onLoadMoreData} method
- * will be called. If {@link loadMoreDataListner} is not set MagicRecyclerView will behave as normal RecyclerView.
+ * will be called. If {@link #loadMoreDataListener} is not set MagicRecyclerView will behave as normal RecyclerView.
  *
  * Empty state
- * MagicRecyclerView will show empty state out of the box if {@link emptyStateView} is set. If view is not set it will behave as normal
+ * MagicRecyclerView will show empty state out of the box if {@link #emptyStateView} is set. If view is not set it will behave as normal
  * RecyclerView.
  *
  * @author Koc
@@ -126,7 +126,7 @@ public class MagicRecyclerView extends RecyclerView {
     }
 
     /**
-     * If adapter has no items {@link emptyStateView} is shown and RecyclerView visibility is set to GONE.
+     * If adapter has no items {@link #emptyStateView} is shown and RecyclerView visibility is set to GONE.
      */
     private void setRecyclerViewVisibility() {
 
