@@ -6,8 +6,9 @@ import com.ivankocijan.magicviews.utils.FontUtils;
 import com.ivankocijan.magicviews.utils.AttrsUtils;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 
 /**
  * @author Koc

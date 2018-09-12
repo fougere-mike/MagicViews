@@ -1,10 +1,10 @@
 package com.ivankocijan.magicviews.views;
 
+import com.google.android.material.tabs.TabLayout;
 import com.ivankocijan.magicviews.interfaces.MagicView;
 import com.ivankocijan.magicviews.utils.FontUtils;
 
 import android.content.Context;
-import android.support.design.widget.TabLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;

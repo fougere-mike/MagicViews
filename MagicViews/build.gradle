@@ -1,45 +1,15 @@
 apply plugin: 'com.android.library'
-apply from: './quality.gradle'
-
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
-    }
-}
-
-apply plugin: 'maven'
-apply plugin: 'signing'
-version = "3.1.1"
-group = "com.ivankocijan"
-
-repositories {
-    jcenter()
-}
-
-configurations {
-    archives {
-        extendsFrom configurations.default
-    }
-}
-
-signing {
-    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
-    sign configurations.archives
-}
+apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.2"
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 23
-        versionCode 15
-        versionName "3.1.1"
+        targetSdkVersion 28
+        versionCode 16
+        versionName "3.1.2"
     }
     buildTypes {
         release {
@@ -51,53 +21,26 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.2.0'
-    compile 'com.android.support:support-v4:23.2.0'
-    compile 'com.android.support:design:23.2.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0-rc02'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-rc02'
+    implementation 'com.google.android.material:material:1.0.0-rc02'
 
 }
 
-uploadArchives {
-    configuration = configurations.archives
-    repositories.mavenDeployer {
-        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-        repository(url: sonatypeRepo) {
-            authentication(userName: sonatypeUsername,
-                    password: sonatypePassword)
-        }
-
-        pom.project {
-            name 'magicviews'
-            packaging 'aar'
-            description 'Android font library'
-            url 'www.ivankocijan.com'
-
-            scm {
-                url 'scm:git@github.com:ikocijan/MagicViews.git'
-                connection 'scm:git@github.com:ikocijan/MagicViews.git'
-                developerConnection 'scm:git@github.com:ikocijan/MagicViews.git'
-            }
-
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-
-            developers {
-
-                developer {
-                    id 'Koc'
-                    name 'Ivan Kocijan'
-                    email 'ikocijan0@gmail.com'
-                }
-            }
-        }
-    }
+publish {
+    userOrg = USER_ORG
+    groupId = GROUP
+    artifactId = ARTIFACT_ID
+    publishVersion = VERSION_NAME
+    desc = POM_DESCRIPTION
+    website = POM_URL
+    bintrayUser = properties.getProperty("bintray.user")
+    bintrayKey = properties.getProperty("bintray.apikey")
+    autoPublish = false
 }
 
 task clearJar(type: Delete) {
