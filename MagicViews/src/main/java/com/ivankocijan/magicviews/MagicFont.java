@@ -103,6 +103,7 @@ public final class MagicFont {
 
 
     /**
+     * @param typefaces do not use
      * @deprecated not used anymore
      */
     @Deprecated
@@ -121,6 +122,7 @@ public final class MagicFont {
     }
 
     /**
+     * @param typeface do not use
      * @return true if font is found
      * @deprecated not used anymore
      */

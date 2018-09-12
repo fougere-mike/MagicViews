@@ -24,6 +24,9 @@ public class FontUtils {
     /**
      * Set's typeface on view
      *
+     * @param ctx
+     * @param attrs
+     * @param view
      * @deprecated use AttrsUtils.setAttributes(Context ctx, AttributeSet attrs, TextView view)
      */
     @Deprecated
@@ -59,6 +62,10 @@ public class FontUtils {
 
     /**
      * Set's font style for custom preference
+     *
+     * @param ctx
+     * @param fontStyle
+     * @param views
      */
     public static void setPreferenceTypeface(Context ctx, String fontStyle, TextView... views) {
 
@@ -76,6 +83,10 @@ public class FontUtils {
 
     /**
      * Returns font style from attribute set
+     *
+     * @param ctx
+     * @param attrs
+     * @param type
      */
     public static String getPrefFontStyle(Context ctx, AttributeSet attrs, PreferenceType type) {
 

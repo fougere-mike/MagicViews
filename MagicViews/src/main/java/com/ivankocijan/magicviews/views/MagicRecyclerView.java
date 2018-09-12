@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * MagicRecyclerView adds support for endless scrolling and empty state.
  *
  * Endless scrolling
- * To support endless scrolling add {@link LoadMoreDataListener}. When user scrolls down to the last item {@link @onLoadMoreData} method
+ * To support endless scrolling add {@link LoadMoreDataListener}. When user scrolls down to the last item {@link LoadMoreDataListener#onLoadMoreData} method
  * will be called. If {@link #loadMoreDataListener} is not set MagicRecyclerView will behave as normal RecyclerView.
  *
  * Empty state

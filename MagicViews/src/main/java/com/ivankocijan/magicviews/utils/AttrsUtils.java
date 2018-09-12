@@ -23,8 +23,8 @@ public class AttrsUtils {
     /**
      * Set's attributes to TextView if they exist
      *
-     * @param ctx @{link Context} to use for resource loading.
-     * @param view The @{link TextView} to operate upon.
+     * @param ctx {@link Context} to use for resource loading.
+     * @param view The {@link TextView} to operate upon.
      */
     public static void setAttributes(Context ctx, AttributeSet attrs, TextView view) {
 
